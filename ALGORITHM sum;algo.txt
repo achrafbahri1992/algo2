@@ -1,0 +1,40 @@
+ALGORITHM sum_all_distinct_elements
+VAR
+    arr1,arr2=ARRAY_for_INTEGER
+    i,j:INTEGER=0
+    s:INTEGER=0;
+    found:BOOLEAN
+
+
+BEGIN
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+    FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+     IF (arr1[i]-arr2[j]) THEN
+        found:=true
+        Break
+
+     END_IF
+    END_FOR
+    IF (found=false) THEN
+        s:-s+arr1[i]
+    END_IF
+    
+    END_FOR
+    FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+       found:=false
+       FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+       IF (arr1[i]=arr2[j]) THEN
+         found:=true
+         Break
+       END_IF
+        
+
+       END_FOR
+       IF (found=false) THEN
+        s:=arr2[j]
+       END_IF
+      
+    END_FOR
+    write(the sum is=",s)
+    
+END
